@@ -10,11 +10,11 @@ import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public abstract class BaseEntityDAO<Entity> {
+public abstract class BaseEntityDAO<Entity , ID extends Number> {
     protected abstract Class<Entity> getEntityClass();
     protected abstract String getFieldName();
     //find
-    public Optional<Entity> findById(long id) {
+    public Optional<Entity> findById(ID id) {
         EntityManager em = EMF.getEntityManager();
         Entity obj;
         try{

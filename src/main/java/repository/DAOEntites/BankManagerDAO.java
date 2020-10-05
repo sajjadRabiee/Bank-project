@@ -1,4 +1,15 @@
 package repository.DAOEntites;
 
-public class BankManagerDAO {
+import service.entities.BankManager;
+
+public class BankManagerDAO extends BaseEntityDAO<BankManager,Long>{
+    @Override
+    protected Class<BankManager> getEntityClass() {
+        return BankManager.class;
+    }
+
+    @Override
+    protected String getFieldName() {
+        return "name";
+    }
 }
