@@ -4,21 +4,28 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+@Entity
+@Table(name = "customer")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id" , unique = true , nullable = false)
     private long id;
+    @Column(name = "username")
+    private String username;
     @Column(name = "name")
     private String name;
+    @Column(name = "national_code")
+    private String nationalCode;
+    @Column(name = "password")
+    private String password;
     @Column(name = "gender")
     private Gender gender;
     @Column(name = "birthday")
     private Date BirthDay;
     @Embedded
     private Address address;
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_account")
     private List<CustomerAccount> customerAccounts = new ArrayList<>();
 
@@ -68,5 +75,29 @@ public class Customer {
 
     public void setCustomerAccounts(List<CustomerAccount> customerAccounts) {
         this.customerAccounts = customerAccounts;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getNationalCode() {
+        return nationalCode;
+    }
+
+    public void setNationalCode(String nationalCode) {
+        this.nationalCode = nationalCode;
     }
 }

@@ -3,7 +3,7 @@ package service.entities;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Entity
 public class CreditCard {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -11,7 +11,7 @@ public class CreditCard {
     private long id;
     @Column(name = "card_number" , unique = true)
     private String cardNumber;
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_transaction")
     private List<Transaction> transactionList = new ArrayList<>();
 

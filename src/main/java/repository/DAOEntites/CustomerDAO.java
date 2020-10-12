@@ -11,6 +11,6 @@ public class CustomerDAO extends BaseEntityDAO<Customer,Long> {
 
     @Override
     protected String getFieldName() {
-        return "name";
+        return "username";
     }
 }

@@ -27,7 +27,7 @@ public final class InputArea {
         return userStringInput;
     }
 
-    public static int getMenuNumber(int n) {
+    public static int getNumberInRange(int n) {
         int number;
         do {
             System.out.println("Please enter a in number range 0 to " + n);
@@ -86,4 +86,6 @@ public final class InputArea {
     }
 
     public static String getTitle(){return sc.next();}
+
+    public static long getLong(){return  sc.nextLong();}
 }

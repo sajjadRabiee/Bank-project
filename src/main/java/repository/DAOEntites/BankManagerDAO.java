@@ -10,6 +10,6 @@ public class BankManagerDAO extends BaseEntityDAO<BankManager,Long>{
 
     @Override
     protected String getFieldName() {
-        return "name";
+        return "username";
     }
 }

@@ -11,7 +11,7 @@ import service.entities.Employee;
 import java.util.Optional;
 
 public final class Login {
-    public static Customer customerLogin(){
+    public static Optional<Customer> customerLogin(){
         CustomerDAO customerDAO = new CustomerDAO();
         System.out.println("Please enter your username : ");
         while(true) {
@@ -23,9 +23,14 @@ public final class Login {
                 while (true) {
                     String password = InputArea.getPassword();
                     if (password.equals(customer.getPassword())) {
-                        return customer;
+                        return Optional.of(customer);
                     } else {
-                        System.out.println("password is not corrected please try again : ");
+                        System.out.println("password is not corrected do you want try again : ");
+                        if(InputArea.getBool()){
+                            continue;
+                        }else{
+                            return Optional.ofNullable(null);
+                        }
                     }
                 }
             } else {
@@ -33,7 +38,7 @@ public final class Login {
             }
         }
     }
-    public static Employee employeeLogin(){
+    public static Optional<Employee> employeeLogin(){
         EmployeeDAO employeeDAO = new EmployeeDAO();
         System.out.println("Please enter your username : ");
         while(true) {
@@ -45,9 +50,14 @@ public final class Login {
                 while (true) {
                     String password = InputArea.getPassword();
                     if (password.equals(employee.getPassword())) {
-                        return employee;
+                        return Optional.of(employee);
                     } else {
-                        System.out.println("password is not corrected please try again : ");
+                        System.out.println("password is not corrected do you want try again : ");
+                        if(InputArea.getBool()){
+                            continue;
+                        }else{
+                            return Optional.ofNullable(null);
+                        }
                     }
                 }
             } else {
@@ -55,7 +65,7 @@ public final class Login {
             }
         }
     }
-    public static BankManager bankManagerLogin(){
+    public static Optional<BankManager> bankManagerLogin(){
         BankManagerDAO bankManagerDAO = new BankManagerDAO();
         System.out.println("Please enter your username : ");
         while(true) {
@@ -67,9 +77,14 @@ public final class Login {
                 while (true) {
                     String password = InputArea.getPassword();
                     if (password.equals(bankManager.getPassword())) {
-                        return bankManager;
+                        return Optional.of(bankManager);
                     } else {
-                        System.out.println("password is not corrected please try again : ");
+                        System.out.println("password is not corrected do you want try again : ");
+                        if(InputArea.getBool()){
+                            continue;
+                        }else{
+                            return Optional.ofNullable(null);
+                        }
                     }
                 }
             } else {

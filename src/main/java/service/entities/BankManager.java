@@ -10,6 +10,10 @@ public class BankManager {
     private long id;
     @Column(name = "name")
     private String name;
+    @Column(name = "username")
+    private String username;
+    @Column(name = "password")
+    private String password;
     @OneToOne(mappedBy = "bankManager")
     private BankBranch bankBranch;
 
@@ -35,5 +39,21 @@ public class BankManager {
 
     public void setBankBranch(BankBranch bankBranch) {
         this.bankBranch = bankBranch;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
